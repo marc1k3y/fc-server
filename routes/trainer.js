@@ -7,10 +7,19 @@ router.post("/login", (req, res) => {
   Trainer.findOne({ login })
     .then((trainer) => {
       trainer.password === password
-        ? res.sendStatus(200)
+        ? res.send(trainer._id)
         : res.sendStatus(300)
     })
     .catch((e) => res.send(e.message))
+})
+
+router.get("/check", (req, res) => {
+  const { id } = req.query
+  Trainer.findOne({ _id: id })
+    .then((trainer) => {
+      res.send(trainer._id)
+    })
+    .catch(() => res.sendStatus(300))
 })
 
 router.post("/reg", (req, res) => {
