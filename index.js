@@ -8,14 +8,14 @@ mongoose.Promise = global.Promise
 
 const app = express()
 
-const userRouter = require('./routes/userApi')
-const busRouter = require('./routes/busApi')
+const spmanRouter = require('./routes/sportsman')
+const trainerRouter = require('./routes/trainer')
 
 app.use(express.json())
 app.use(cors())
-app.use('/api/user', userRouter)
-app.use('/api/bus', busRouter)
+app.use('/api/spman', spmanRouter)
+app.use('/api/trainer', trainerRouter)
 
 app.listen(process.env.PORT || 4000, function () {
-  console.log("Server started")
+  console.log(`Server started`)
 })
