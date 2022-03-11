@@ -4,6 +4,7 @@
   "description": "server for fc orel",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "author": "marc1k3y <marc1k3y@gmail.com>",
