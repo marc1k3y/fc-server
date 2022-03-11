@@ -32,6 +32,7 @@ router.put("/medals", (req, res) => {
       spman.save()
       res.sendStatus(200)
     })
+    .catch(() => res.sendStatus(300))
 })
 
 router.get("/all", (req, res) => {
