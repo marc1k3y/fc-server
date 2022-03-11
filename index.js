@@ -15,6 +15,9 @@ app.use(express.json())
 app.use(cors())
 app.use("/api/spman", spmanRouter)
 app.use("/api/trainer", trainerRouter)
+app.use((err, req, res, next) => {
+  err && res.status(422).send({ error: err.message })
+})
 
 app.listen(process.env.PORT || 4000, function () {
   console.log(`Server started`)
