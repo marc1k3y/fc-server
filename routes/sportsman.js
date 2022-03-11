@@ -29,6 +29,7 @@ router.put("/medals", (req, res) => {
       } else if (medals.bronze) {
         spman.medals = { ...spman.medals, bronze: medals.bronze }
       }
+      spman.markModified("medals")
       spman.save()
       res.sendStatus(200)
     })
