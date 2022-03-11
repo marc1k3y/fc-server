@@ -10,7 +10,8 @@ router.post("/create", (req, res) => {
 })
 
 router.put("/medals", (req, res) => {
-  const { id, medals } = req.body
+  const { id } = req.query
+  const { medals } = req.body
   Sportsman.findOne({ _id: id })
     .then((spman) => {
       if (medals.gold && spman.medals?.gold) {
