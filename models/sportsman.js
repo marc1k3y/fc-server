@@ -12,6 +12,15 @@ const SportsmanSchema = new Schema({
   },
   medals: {
     type: Object,
+    gold: {
+      type: Array
+    },
+    silver: {
+      type: Array
+    },
+    bronze: {
+      type: Array
+    }
   },
   rating: {
     type: Number,
