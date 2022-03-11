@@ -9,12 +9,10 @@ router.post("/create", (req, res) => {
     .catch((e) => res.send(e.message))
 })
 
-router.put("/update", (req, res) => {
-  const { id, name, age, medals } = req.body
+router.put("/medals", (req, res) => {
+  const { id, medals } = req.body
   Sportsman.findOne({ _id: id })
     .then((spman) => {
-      spman.name = name
-      spman.age = age
       if (medals.gold && spman.medals?.gold) {
         medals.gold.map(medal => spman.medals.gold.push(medal))
       } else if (medals.gold) {
