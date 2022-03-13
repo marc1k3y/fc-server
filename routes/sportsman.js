@@ -9,6 +9,26 @@ router.post("/create", (req, res) => {
     .catch((e) => res.send(e.message))
 })
 
+router.update("/update", (req, res) => {
+  const { id } = req.query
+  const { name, age } = req.body
+  Sportsman.findOne({ _id: id })
+    .then((spman) => {
+      spman.name = name
+      spman.age = age
+      spman.save()
+      res.sendStatus(200)
+    })
+    .catch(() => res.sendStatus(300))
+})
+
+router.delete("/delete", (req, res) => {
+  const { id } = req.query
+  Sportsman.deleteOne({ _id: id })
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(300))
+})
+
 router.put("/medals", (req, res) => {
   const { id } = req.query
   const { medals } = req.body
