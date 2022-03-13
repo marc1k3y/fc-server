@@ -50,6 +50,7 @@ router.put("/medals", (req, res) => {
         spman.medals = { ...spman.medals, bronze: medals.bronze }
       }
       spman.markModified("medals")
+      spman.rating = ((spman.medals?.gold.length * 5) + (spman.medals?.silver.length * 3) + (spman.medals?.bronze.length))
       spman.save()
       res.sendStatus(200)
     })
