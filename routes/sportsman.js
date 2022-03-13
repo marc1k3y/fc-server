@@ -9,7 +9,7 @@ router.post("/create", (req, res) => {
     .catch((e) => res.send(e.message))
 })
 
-router.update("/update", (req, res) => {
+router.put("/update", (req, res) => {
   const { id } = req.query
   const { name, age } = req.body
   Sportsman.findOne({ _id: id })
