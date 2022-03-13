@@ -59,6 +59,11 @@ router.put("/medals", (req, res) => {
 router.get("/all", (req, res) => {
   Sportsman.find({})
     .then((spmans) => {
+      spmans.map(spman => 
+        spman.rating = (
+          (spman.medals?.gold.length * 5) +
+          (spman.medals?.silver.length * 3) +
+          (spman.medals?.bronze.length)))
       res.send(spmans)
     })
 })
