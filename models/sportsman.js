@@ -10,6 +10,9 @@ const SportsmanSchema = new Schema({
     type: Number,
     required: true
   },
+  photo: {
+    type: String
+  },
   medals: {
     type: Object,
     gold: {
